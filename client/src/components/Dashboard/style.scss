@@ -1,0 +1,24 @@
+
+.dashboard-box {
+    height: 50vh; //
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3px solid red;
+
+    .dashboard-box-item {
+        border: 3px solid green;
+    }
+
+    // .dashboard-box-left {
+    //     flex-grow: 1;
+    // }
+
+    // .dashboard-box-mid {
+    //     flex-grow: 2;
+    // }
+
+    // .dashboard-box-right {
+    //     flex-grow: 1;
+    // }
+}

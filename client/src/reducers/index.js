@@ -5,7 +5,7 @@ import piggyReducer from './piggy';
 import mainReducer from './main';
 
 export default combineReducers({
-    authReducer,
-    piggyReducer,
-    mainReducer
+    auth: authReducer,
+    piggy: piggyReducer,
+    main: mainReducer
 });
