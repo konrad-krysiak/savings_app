@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Route, Switch } from 'react-router';
 import './App.scss';
 
@@ -12,7 +11,6 @@ import Piggy from './components/Piggy/Piggy';
 import PiggyNew from './components/Piggy/PiggyNew';
 
 function App() {
-  const {v, setv} = useState(5);
   return (
     <div className="App">
       <Header />
