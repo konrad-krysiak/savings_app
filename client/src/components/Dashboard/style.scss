@@ -9,16 +9,9 @@
     .dashboard-box-item {
         border: 3px solid green;
     }
+}
 
-    // .dashboard-box-left {
-    //     flex-grow: 1;
-    // }
-
-    // .dashboard-box-mid {
-    //     flex-grow: 2;
-    // }
-
-    // .dashboard-box-right {
-    //     flex-grow: 1;
-    // }
+.piggy-container {
+    display: flex;
+    flex-direction: row;
 }

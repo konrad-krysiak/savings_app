@@ -29,6 +29,7 @@ export const Dashboard = () => {
                     </div>
                 </div>
 
+                <div className="piggy-container">
                 {state.map(piggy => {
                     return (
                         <Card style={{ width: '18rem' }}>
@@ -45,6 +46,8 @@ export const Dashboard = () => {
                         </Card>
                     );
                 })}
+                </div>
+
 
 
 
