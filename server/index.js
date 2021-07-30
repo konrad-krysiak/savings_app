@@ -2,6 +2,11 @@ const express = require('express')
 const app = express();
 const {port} = require('./config');
 
+//lacznie sie z plikiem
+
+//db
+require('./db/mongoose');
+
 //routes
 const apiRouter = require('./routes/api');
 
