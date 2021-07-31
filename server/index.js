@@ -1,12 +1,18 @@
-const express = require('express')
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+import { port } from './config.js';
+import userRoutes from './routes/user.js';
+
 const app = express();
-const {port} = require('./config');
 
-//routes
-const apiRouter = require('./routes/api');
+app.use(cors());
 
-app.use('/', apiRouter);
+app.use('/', userRoutes);
 
-app.listen(port, function(){
-    console.log('serwer slucha na ....http://localhost:' + port)
-});
+const CONNECTION_URL = 'mongodb+srv://savingsapp:savingsapp123@cluster0.rokqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => app.listen(port, () => console.log(`Server running on port: ${port}`)))
+    .catch((err) => console.log(err));
+mongoose.set('useFindAndModify', false);
