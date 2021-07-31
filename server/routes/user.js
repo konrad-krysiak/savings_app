@@ -1,5 +1,6 @@
 import express from 'express';
 
+<<<<<<< HEAD
 //setup router
 const router = express.Router();
 
@@ -36,3 +37,11 @@ router.put('/{id}', editPayment);
 router.delete('/{id}', deletePayment);
 
 export default router;
+=======
+const router = express.Router();
+
+router.get('/', (req, res) => res.send("dziala"));
+
+
+export default router;
+>>>>>>> Login system in progress
