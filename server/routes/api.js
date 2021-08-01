@@ -1,9 +1,7 @@
-const express = require('express');
-const app = express();
+import express from "express";
+
 const router = express.Router();
 
-const testActions = require('../actions/api/test_db');
-router.get('/', testActions.saveNote)
+router.get("/", (req, res) => res.send("dziala"));
 
-
-module.exports = router;
+export default router;

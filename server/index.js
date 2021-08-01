@@ -1,17 +1,26 @@
-const express = require('express')
+import express from 'express';
+import mongoose from 'mongoose';
+import cors from 'cors';
+
+import { port } from './config.js';
+import userRoutes from './routes/user.js';
+
+//we need to initilize express
 const app = express();
-const {port} = require('./config');
+//Calling use(cors()) will enable the express server to respond to preflight requests.
+//A preflight request is basically an OPTION
+// request sent to the server before the actual request is sent, in order to ask which origin and which request options the server accepts.
+app.use(cors());
 
-//lacznie sie z plikiem
+app.use('/', userRoutes);
 
-//db
-require('./db/mongoose');
+//connection with dataBase
 
-//routes
-const apiRouter = require('./routes/api');
+const CONNECTION_URL =
+  'mongodb+srv://savingsapp:savingsapp123@cluster0.rokqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-app.use('/', apiRouter);
-
-app.listen(port, function(){
-    console.log('serwer slucha na ....http://localhost:' + port)
-});
+mongoose
+  .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => app.listen(port, () => console.log(`Server running on port: ${port}`)))
+  .catch((err) => console.log(err));
+mongoose.set('useFindAndModify', false);
