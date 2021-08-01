@@ -17,7 +17,7 @@ app.use('/', userRoutes);
 //connection with dataBase
 
 const CONNECTION_URL =
-  'mongodb+srv://savingsapp:savingsapp123@cluster0.rokqg.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+  'mongodb+srv://klara:Madryt1477@savingsapp.glq6s.mongodb.net/savingsapp?retryWrites=true&w=majority';
 
 mongoose
   .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
