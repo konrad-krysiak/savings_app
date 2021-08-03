@@ -1,7 +1,7 @@
 import { Route, Switch } from 'react-router';
 import './App.scss';
 
-import Header from './components/Header/Header';
+import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
 import Preferences from './components/Preferences/Preferences';
@@ -13,7 +13,7 @@ import PiggyNew from './components/Piggy/PiggyNew';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Navbar />
 
       <Switch>
         <Route exact path="/" component={Home} />
