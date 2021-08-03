@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 
 import { Form, Row, Col, Button } from 'react-bootstrap';
 import './style.scss';
+import { signin, signup } from '../../actions/auth';
 
 const initialFormData = {
     firstName: '',
@@ -42,8 +43,11 @@ const Auth = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log(history);
+        if( showSignIn ) {
+            dispatch(signin(formData, history));
+        } else {
+            dispatch(signup(formData, history));
+        }
     };
 
     const handleChange = (e) => {

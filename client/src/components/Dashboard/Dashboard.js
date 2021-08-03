@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Container, Card } from 'react-bootstrap';
 import './style.scss';
 
-import Piggy from '../Piggy/Piggy';
+// import Piggy from '../Piggy/Piggy';
 
 
 export const Dashboard = () => {
-    const dispatch = useDispatch();
     const state = useSelector(state => state.piggy);
+    // const user = JSON.parse(localStorage.getItem('profile'));
+
     return (
         <>
             <Container className="text-center mt-3">
@@ -30,9 +31,9 @@ export const Dashboard = () => {
                 </div>
 
                 <div className="piggy-container">
-                {state.map(piggy => {
+                {state.map( (piggy, index) => {
                     return (
-                        <Card style={{ width: '18rem' }}>
+                        <Card style={{ width: '18rem' }} key={index}>
                         <Card.Body>
                             <Card.Title>Piggy id: {piggy.id}</Card.Title>
                             <Card.Subtitle className="mb-2 text-muted">Piggy money: {piggy.money}</Card.Subtitle>
