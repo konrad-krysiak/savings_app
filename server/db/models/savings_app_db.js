@@ -8,10 +8,29 @@ const userSchema = mongoose.Schema({
   id: { type: String },
 });
 
+userSchema.set('toJSON',{
+  virtuals: true,
+  versionKey: false,
+  transform: function(doc, ret){
+    delete ret._id;
+    delete ret.hash;
+  }
+});
+
+
 //aktualna wartosc pieniedzy
 const accountSchema = mongoose.Schema({
   cash: { type: Int16Array, required: true },
   moneyOnTheAccount: { type: Int16Array, required: true },
+});
+
+accountSchema.set('toJSON',{
+  virtuals: true,
+  versionKey: false,
+  transform: function(doc, ret){
+    delete ret._id;
+    delete ret.hash;
+  }
 });
 
 //wpłata
@@ -22,12 +41,30 @@ const paymentSchema = mongoose.Schema({
   date: {type: date, required: true}
 });
 
+paymentSchema.set('toJSON',{
+  virtuals: true,
+  versionKey: false,
+  transform: function(doc, ret){
+    delete ret._id;
+    delete ret.hash;
+  }
+});
+
 //wypłata
 const paycheckmentSchema = mongoose.Schema({
   idPaycheck: {type: Int16Array, required: true},
   paycheckmantCash: { type: Int16Array, required: false },
   paycheckmentAccount: { type: Int16Array, required: false },
   date: {type: date, required: true}
+});
+
+paycheckmentSchema.set('toJSON',{
+  virtuals: true,
+  versionKey: false,
+  transform: function(doc, ret){
+    delete ret._id;
+    delete ret.hash;
+  }
 });
 
 const piggyBankSchema = mongoose.Schema({
@@ -38,6 +75,15 @@ const piggyBankSchema = mongoose.Schema({
   dateOfEnd: {type: date, required: false},
   dateOfBegin: {type: date, required: true}
 })
+
+piggyBankSchema.set('toJSON',{
+  virtuals: true,
+  versionKey: false,
+  transform: function(doc, ret){
+    delete ret._id;
+    delete ret.hash;
+  }
+});
 
 export default mongoose.model('User', userSchema);
 export default mongoose.model('Account', accountSchema);
