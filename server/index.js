@@ -1,11 +1,10 @@
-import express from 'express';
+import express from 'express'; //we need to initilize express
 import mongoose from 'mongoose';
 import cors from 'cors';
 
 import { port } from './config.js';
 import userRoutes from './routes/user.js';
 
-//we need to initilize express
 const app = express();
 //Calling use(cors()) will enable the express server to respond to preflight requests.
 //A preflight request is basically an OPTION
@@ -19,6 +18,7 @@ app.use('/', userRoutes);
 const CONNECTION_URL =
   'mongodb+srv://klara:Madryt1477@savingsapp.glq6s.mongodb.net/savingsapp?retryWrites=true&w=majority';
 
+//create a server that browsers can connect to
 mongoose
   .connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(port, () => console.log(`Server running on port: ${port}`)))
