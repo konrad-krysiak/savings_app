@@ -3,7 +3,7 @@ import express from 'express';
 //setup router
 const router = express.Router();
 
-const getActions = require('../controllers/posts.js');
+const getActions = require('../controllers/user_service.js');
 //platnosci przychodzace
 //pobieranie wszystkich platnosci przychodzacych
 router.get('/posts', getActions.getAllPayments);

@@ -51,14 +51,14 @@ paymentSchema.set('toJSON',{
 });
 
 //wypłata
-const paycheckmentSchema = mongoose.Schema({
+const paycheckSchema = mongoose.Schema({
   idPaycheck: {type: Int16Array, required: true},
-  paycheckmantCash: { type: Int16Array, required: false },
-  paycheckmentAccount: { type: Int16Array, required: false },
+  paycheckCash: { type: Int16Array, required: false },
+  paycheckAccount: { type: Int16Array, required: false },
   date: {type: date, required: true}
 });
 
-paycheckmentSchema.set('toJSON',{
+paychecktSchema.set('toJSON',{
   virtuals: true,
   versionKey: false,
   transform: function(doc, ret){
@@ -85,9 +85,17 @@ piggyBankSchema.set('toJSON',{
   }
 });
 
-export default mongoose.model('User', userSchema);
-export default mongoose.model('Account', accountSchema);
-export default mongoose.model('Payment', paymentSchema);
-export default mongoose.model('Paycheck', paycheckSchema);
-export default mongoose.model('PiggyBank', piggyBankSchema);
+//export 
+
+var ModelUser = mongoose.model('User', userSchema);
+export default ModelUser;
+var ModelAccount = mongoose.model('Account', accountSchema);
+export default ModelAccount;
+var ModelPayment = mongoose.model('Payment', paymentSchema);
+export default ModelPayment;
+var ModelPaycheck = mongoose.model('Paycheck', paycheckSchema);
+export default ModelPaycheck;
+var ModelPiggyBank = mongoose.model('PiggyBank', piggyBankSchema);
+export default ModelPiggyBank;
+
 
