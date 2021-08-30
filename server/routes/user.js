@@ -3,21 +3,21 @@ import express from 'express';
 //setup router
 const router = express.Router();
 
-const getActions = require('../controllers/user_service.js');
+import * as getActions from '../controllers/user_service.js';
 //platnosci przychodzace
 //pobieranie wszystkich platnosci przychodzacych
-router.get('/posts', getActions.getAllPayments);
+router.get('/', getActions.getAllPayments);
 
 //pobieranie jednej konkretnej platnosci przychodzacej
-router.get('/posts/{id}', getActions.getPayment);
+router.get('/:id', getActions.getPayment);
 
 //zapisywanie płatnosci przychodzacej
-router.post('/posts', getActions.savePayment);
+router.post('/', getActions.createPayment);
 
 //edytowanie platnosci przychodzacej
-router.put('/posts', getActions.editPayment);
+router.put('/:id', getActions.editPayment);
 
 //usuwanie platnosci przychodzacej
-router.delete('/posts', getActions.deletePayment);
+router.delete('/:id', getActions.deletePayment);
 
 export default router;

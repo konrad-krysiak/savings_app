@@ -3,15 +3,16 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import { port } from './config.js';
-import userRoutes from './routes/user.js';
+import router from './routes/user.js';
 
 const app = express();
+
 //Calling use(cors()) will enable the express server to respond to preflight requests.
 //A preflight request is basically an OPTION
 // request sent to the server before the actual request is sent, in order to ask which origin and which request options the server accepts.
 app.use(cors());
 
-app.use('/', userRoutes);
+app.use('/posts', router);
 
 //connection with dataBase
 
