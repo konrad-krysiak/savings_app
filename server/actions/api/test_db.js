@@ -1,15 +1,15 @@
-const { Note } = require("../../db/models/savings_app_db");
+const { payment } = require('../../db/models/payment_model.js');
 
-module.exports = {
-  saveNote(req, res) {
-    const newNote = new Note({
-      title: "zrobic zakupy",
-      body: "mleko, czekolada",
+export const createPayment = {
+  function(req, res) {
+    const newNote = new payment({
+      paymentCash: 13,
+      paymentAccount: 10,
     });
     newNote.save().then(() => {
-      console.log("notatka zostala zapisana");
+      console.log('notatka zostala zapisana');
     });
 
-    res.send("strona dziala");
+    res.send('strona dziala');
   },
 };

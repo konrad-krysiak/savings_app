@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 
 import { port } from './config.js';
-import router from './routes/user.js';
+import postRoutes from './routes/user.js';
 
 const app = express();
 
@@ -12,8 +12,7 @@ const app = express();
 // request sent to the server before the actual request is sent, in order to ask which origin and which request options the server accepts.
 app.use(cors());
 
-app.use('/posts', router);
-
+app.use('/posts', postRoutes);
 //connection with dataBase
 
 const CONNECTION_URL =
