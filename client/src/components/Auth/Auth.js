@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
-import { Container } from "react-bootstrap";
+import { useState } from 'react';
 import GoogleLogin from 'react-google-login';
 import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
-import { Form, Row, Col, Button } from 'react-bootstrap';
-import './style.scss';
+
+import './style.css';
 import { signin, signup } from '../../actions/auth';
+import Navbar from '../Navbar/Navbar';
 
 const initialFormData = {
     firstName: '',
     lastName: '',
     email: '',
     password: '',
-    confirmedPassword: ''
+    confirmPassword: ''
 };
 
 const Auth = () => {
@@ -43,11 +43,12 @@ const Auth = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if( showSignIn ) {
-            dispatch(signin(formData, history));
-        } else {
-            dispatch(signup(formData, history));
-        }
+        console.log(formData);
+        // if( showSignIn ) {
+        //     dispatch(signin(formData, history));
+        // } else {
+        //     dispatch(signup(formData, history));
+        // }
     };
 
     const handleChange = (e) => {
@@ -60,86 +61,39 @@ const Auth = () => {
     }
 
     return (
-        <Container className="pt-5">
-            <h1 className="text-center py-3">{ showSignIn ? `Sign in` : `Sign up` }</h1>
-            <Form className="" onSubmit={handleSubmit} >
-            { !showSignIn &&
-            <>
-                <Form.Group as={Row} className="mb-3 justify-content-sm-center">
-                    <Form.Label column sm={1}>
-                        First name
-                    </Form.Label>
-                    <Col sm={4}>
-                        <Form.Control value={formData.firstName} onChange={handleChange} name="firstName" type="text" placeholder="first name" />
-                    </Col>
-                </Form.Group> 
-                
-                <Form.Group as={Row} className="mb-3 justify-content-sm-center">
-                    <Form.Label column sm={1}>
-                        Last name
-                    </Form.Label>
-                    <Col sm={4}>
-                        <Form.Control value={formData.lastName} onChange={handleChange} name="lastName" type="text" placeholder="last name" />
-                    </Col>
-                </Form.Group> 
-            </>
-            }
+    <div class="signup_page">
 
-            <Form.Group as={Row} className="mb-3 justify-content-sm-center">
-                <Form.Label column sm={1}>
-                    Email
-                </Form.Label>
-                <Col sm={4}>
-                    <Form.Control value={formData.email} onChange={handleChange} name="email" type="email" placeholder="Email" />
-                </Col>
-            </Form.Group>
+        <Navbar />
 
-            <Form.Group as={Row} className="mb-3 justify-content-sm-center">
-                <Form.Label column sm={1}>
-                    Password
-                </Form.Label>
-                <Col sm={4}>
-                    <Form.Control value={formData.password} onChange={handleChange} name="password" type="password" placeholder="Password" />
-                </Col>
-            </Form.Group>
+        <div class="signup_container">
+            <div class="signup_box">
+                { showSignIn ? <h1>Sign in</h1> : <h1>Sign up</h1> }
 
-            { !showSignIn &&
-            <Form.Group as={Row} className="mb-3 justify-content-sm-center">
-                <Form.Label column sm={1}>
-                    Repeat password
-                </Form.Label>
-                <Col sm={4}>
-                    <Form.Control value={formData.confirmedPassword} onChange={handleChange} name="confirmedPassword" type="password" placeholder="repeat password" />
-                </Col>
-            </Form.Group> 
-            }
+                { !showSignIn &&
+                    <>
+                        <input 
+                            type="text" name="firstName" placeholder="First name" value={formData.firstName} onChange={handleChange} /> 
+                        <input 
+                            type="text" name="lastName" placeholder="Last name" value={formData.lastName} onChange={handleChange} /> 
+                    </> }
+                <input type="text" name="email" placeholder="E-mail" value={formData.email} onChange={handleChange} />
+                <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} />
+                { !showSignIn && 
+                <input type="password" name="confirmPassword" placeholder="Confirm password" value={formData.confirmedPassword} onChange={handleChange} /> }
+                <input type="submit" name="signup_submit" value={ showSignIn ? `Sign in` : `Sign up` } onClick={handleSubmit} />
 
-            <Form.Group as={Row} className="mb-3 justify-content-sm-center">
-                <Col sm={3}>
-                    <Button type="submit" className="">
-                        { showSignIn ? `Sign in` : `Sign up` }
-                    </Button>
-                    
-                     { showSignIn && 
-                    <GoogleLogin
-                        clientId="181058069431-redfnmfth6m0qftlaa3bi1dvhe5s1vh7.apps.googleusercontent.com"
-                        render={renderProps => (
-                        <Button onClick={renderProps.onClick} disabled={renderProps.disabled}>Sign in with Google</Button>
-                        )}
-                        buttonText="Login"
-                        onSuccess={googleSuccess}
-                        onFailure={googleFailure}
-                        cookiePolicy={'single_host_origin'}
-                    />
-                    }
+                { showSignIn &&
+                <button class="social-signin google">Log in with Google+</button> }
+                <div class="already">
+                    <button onClick={changeMode}>
+                        { showSignIn ? `Don't have an account? Sign up!` : `Have an account already? Sign in!`}
+                    </button>
+                </div>
+            </div>
+        </div>
 
-                    <Button onClick={changeMode}>
-                        { showSignIn ? `Dont have an account? Sign up` : `Have an account? Sign in` }
-                    </Button>
-                </Col>
-            </Form.Group>
-            </Form>
-        </Container>
+
+    </div>
     );
 }
 

@@ -1,14 +1,29 @@
-import { Container } from 'react-bootstrap';
-import './style.scss'
+import Navbar from '../Navbar/Navbar';
+import { Link } from 'react-router-dom';
+
+import './style.css';
 
 const Home = () => {
     return (
-        <Container>
-            <h1 className="text-center p-3">Home page</h1>
-            <em>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis numquam expedita ipsum quia sed aperiam labore ab perspiciatis sit, impedit placeat officia dolores inventore, aut maxime vero reiciendis voluptas hic.</em>
-            
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta sequi in repudiandae? Nisi, minima odio enim aut fuga officiis voluptatem tempore sunt modi excepturi quo est velit exercitationem voluptates itaque?</p>
-        </Container>
+    <div className="landing-page">
+        
+        <Navbar />
+
+        <div className="landing-container">
+            <div className="landing-content">
+                <div className="content-header">Looking for way to save money?</div>
+                <div className="content-subheader">We are here for you.</div>
+                <div className="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptatum minus, quis alias perspiciatis reiciendis id porro aliquam velit esse reprehenderit totam, similique, ad minima asperiores autem saepe voluptatibus doloremque!</div>
+                <Link to='/Auth'>
+                    <button className="landing-signup">Sign up </button>
+                </Link>
+            </div>
+
+            <div className="landing-piggy">
+                <div className="landing-piggy-image"></div>
+            </div>
+        </div>
+    </div>
     );
 }
  
