@@ -1,11 +1,11 @@
 import { Route, Switch } from 'react-router';
-import './App.scss';
+import './App.css';
 
-import Header from './components/Header/Header';
+
 import Home from './components/Home/Home';
 import Dashboard from './components/Dashboard/Dashboard';
 import Preferences from './components/Preferences/Preferences';
-import Login from './components/Login/Login';
+import Auth from './components/Auth/Auth';
 import History from './components/History/History';
 import Piggy from './components/Piggy/Piggy';
 import PiggyNew from './components/Piggy/PiggyNew';
@@ -13,16 +13,15 @@ import PiggyNew from './components/Piggy/PiggyNew';
 function App() {
   return (
     <div className="App">
-      <Header />
 
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/Dashboard" component={Dashboard} />
-        <Route path="/Preferences" component={Preferences} />
-        <Route path="/History" component={History} />
-        <Route path="/Login" component={Login} />
-        <Route path="/Piggy/:id" component={Piggy} />
-        <Route path="/Piggy/new" component={PiggyNew} />
+        <Route path="/dashboard" component={Dashboard} />
+        <Route path="/preferences" component={Preferences} />
+        <Route path="/history" component={History} />
+        <Route path="/auth" component={Auth} />
+        <Route path="/piggy/:id" component={Piggy} />
+        <Route path="/piggy/new" component={PiggyNew} />
       </Switch>
     </div>
   );
