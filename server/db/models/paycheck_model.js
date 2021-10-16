@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 //wypłata
 const paycheckSchema = mongoose.Schema({
-  paycheckCash: { type: Number, required: false },
-  paycheckAccount: { type: Number, required: false },
+  paycheckCash: { type: Number, required: true },
+  paycheckAccount: { type: Number, required: true },
   date: { type: Date, default: Date.now },
 });
 

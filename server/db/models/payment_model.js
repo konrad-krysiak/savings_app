@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
 //wpłata
 const paymentSchema = mongoose.Schema({
-  paymantCash: { type: Number, required: false },
-  paymentAccount: { type: Number, required: false },
+  paymantCash: { type: Number, required: true },
+  paymentAccount: { type: Number, required: true },
   date: { type: Date, default: Date.now },
 });
 

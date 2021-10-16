@@ -24,15 +24,15 @@ router.post('/signup', signUp);
 router.get('/', getAllPayments);
 
 //pobieranie jednej konkretnej platnosci przychodzacej
-router.get('/:id', getPayment);
+router.get('/{id}', getPayment);
 
 //zapisywanie płatnosci przychodzacej
 router.post('/', createPayment);
 
 //edytowanie platnosci przychodzacej
-router.put('/:id', editPayment);
+router.put('/{id}', editPayment);
 
 //usuwanie platnosci przychodzacej
-router.delete('/:id', deletePayment);
+router.delete('/{id}', deletePayment);
 
 export default router;

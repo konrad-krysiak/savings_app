@@ -1,9 +1,9 @@
 import mongoose from 'mongoose';
 
 const piggyBankSchema = mongoose.Schema({
-  namePiggy: { type: String, required: false },
-  description: { type: String, required: false },
-  amount: { type: Number, required: false },
+  namePiggy: { type: String, required: true },
+  description: { type: String, required: true },
+  amount: { type: Number, required: true },
   dateOfBegin: { type: Date, default: Date.now },
   dateOfEnd: { type: Date, required: true },
 });
