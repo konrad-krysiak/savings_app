@@ -1,4 +1,5 @@
 import express from 'express';
+<<<<<<< HEAD
 
 //setup router
 const router = express.Router();
@@ -36,3 +37,15 @@ router.put('/{id}', editPayment);
 router.delete('/{id}', deletePayment);
 
 export default router;
+=======
+import { signIn, signUp } from '../controllers/usersController.js';
+
+const router = express.Router();
+
+router.get('/', (req, res) => res.send("dziala"));
+router.post('/signin', signIn);
+router.post('/signup', signUp);
+
+
+export default router;
+>>>>>>> 3c0d56e80f4a68edd23a3ee0db13802d49cb4d50

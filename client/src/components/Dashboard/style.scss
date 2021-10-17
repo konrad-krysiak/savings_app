@@ -1,0 +1,17 @@
+
+.dashboard-box {
+    height: 50vh; //
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 3px solid red;
+
+    .dashboard-box-item {
+        border: 3px solid green;
+    }
+}
+
+.piggy-container {
+    display: flex;
+    flex-direction: row;
+}
