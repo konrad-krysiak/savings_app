@@ -1,7 +1,5 @@
 import express from 'express';
-import { signIn, signUp } from '../controllers/usersController.js';
 
-<<<<<<< HEAD
 //setup router
 const router = express.Router();
 
@@ -38,13 +36,3 @@ router.put('/{id}', editPayment);
 router.delete('/{id}', deletePayment);
 
 export default router;
-=======
-const router = express.Router();
-
-router.get('/', (req, res) => res.send("dziala"));
-router.post('/signin', signIn);
-router.post('/signup', signUp);
-
-
-export default router;
->>>>>>> Login system in progress
